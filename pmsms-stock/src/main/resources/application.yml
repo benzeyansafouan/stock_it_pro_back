@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri: ${mongodb.uri}
+  application:
+    name: stock-service
+server:
+  port: 8085
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+

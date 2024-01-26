@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  mongodb:
+    hostname: stock-management-mongodb
+    restart: always
+    container_name: stock-management-mongodb
+    build:
+      context: docker/stock-management-mongo
+      dockerfile: Dockerfile
+    env_file:
+      - docker/env-files/mongo.env
+    volumes:
+      - mongodb_data:/data
+    command: mongod --auth
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodb_data:
+    driver: local
